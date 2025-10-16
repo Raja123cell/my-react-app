@@ -1,0 +1,76 @@
+<html>
+<head>
+  <title>Registration Form with LocalStorage</title>
+  <style>
+    body{
+      text-align: center;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      background-color: blueviolet;
+      background-image: url("https://i.pinimg.com/736x/ee/2f/aa/ee2faa1840e5c3c292643c386ee3a5cf.jpg");
+      border-radius: 100px;
+      border-image-repeat: repeat;
+      
+    }
+    
+
+  </style>
+  <script>
+    function saveData(event) {
+      event.preventDefault(); 
+
+      let fullname = document.getElementById("fullname").value;
+      let email = document.getElementById("email").value;
+      let contact = document.getElementById("contact").value;
+      let password = document.getElementById("password").value;
+      let confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      
+      let user = {
+        fullname: fullname,
+        email: email,
+        contact: contact,
+        password: password
+      };
+
+     
+      localStorage.setItem("user", JSON.stringify(user));
+      alert("Data saved successfully!");
+    }
+
+    function showData() {
+      let storedUser = localStorage.getItem("user");
+      if (storedUser) {
+        let userObj = JSON.parse(storedUser);
+        document.getElementById("output").innerHTML = `
+          <b>Full Name:</b> ${userObj.fullname} <br>
+          <b>Email:</b> ${userObj.email} <br>
+          <b>Contact:</b> ${userObj.contact} <br>
+          <b>Password:</b> ${userObj.password}
+        `;
+      } else {
+        document.getElementById("output").innerText = "No user data stored!";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Registration Form</h2>
+  <form onsubmit="saveData(event)">
+    <input type="text" id="fullname" placeholder="Full Name" required><br><br>
+    <input type="email" id="email" placeholder="Email" required><br><br>
+    <input type="text" id="contact" placeholder="Contact Number" required><br><br>
+    <input type="password" id="password" placeholder="Password" required><br><br>
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" required><br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <br>
+  <button onclick="showData()">Show Stored Data</button>
+  <p id="output"></p>
+</body>
+</html>

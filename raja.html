@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #fff;
+    }
+    header {
+      background-color: #e0f7fa;
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .left-header {
+      font-weight: bold;
+      color: #000;
+      padding-left: 10px;
+    }
+    .center-header {
+      font-size: 20px;
+      color: teal;
+      font-weight: bold;
+    }
+    .nav-links a {
+      margin: 0 10px;
+      text-decoration: underline;
+      color: purple;
+      font-weight: bold;
+    }
+    .join-btn {
+      background-color: #b2ebf2;
+      border: 1px solid teal;
+      padding: 5px 10px;
+      border-radius: 5px;
+      color: teal;
+      font-weight: bold;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 20px;
+      box-shadow: 1px 1px 20px yellow;
+    }
+    .gallery img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 5px;
+      box-shadow: 1px 1px 20px red;
+    }
+    .footer {
+      background-color: blue;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+ <div class="center-header">React Developer</div>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#">Gallery</a>
+    <a href="#">Page</a>
+    <button class="join-btn">Join Class</button>
+  </div>
+</header>
+
+<div class="gallery">
+  <img src="IMG_20250728_135729.jpg" alt="img1">
+  <img src="IMG_20250728_135729.jpg" alt="img2">
+  <img src="IMG_20250728_135729.jpg" alt="img3">
+  <img src="IMG_20250728_135729.jpg" alt="img4">
+  <img src="IMG_20250728_135729.jpg" alt="img5">
+  <img src="IMG_20250728_135729.jpg" alt="img6">
+  <img src="IMG_20250728_135729.jpg" alt="img7">
+  <img src="IMG_20250728_135729.jpg" alt="img8">
+</div>
+
+<div class="footer">Get to know us better!</div>
+
+</body>
+</html>
